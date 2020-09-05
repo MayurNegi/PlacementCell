@@ -1,6 +1,8 @@
 const express = require("express");
 const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const db = require("./config/mongoose");
 
@@ -12,15 +14,26 @@ app.set("views", "./views");
 app.use(expressLayouts);
 
 app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
-app.use("/", require("./routes"));
+// session creation
+app.use(
+  session({
+    name: "placementCell",
+    secret: "something",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: true,
+      maxAge: 1000 * 100 * 100,
+    },
+  })
+);
 
-// app.get("/", (req, res) => {
-//   res.render("home");
-// });
+app.use("/", require("./routes"));
 
 app.listen(port, function (err) {
   console.log(`Server is running on port ${port}`);
