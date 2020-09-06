@@ -1,6 +1,6 @@
 const passport = require("passport");
 
-const LocalStrategy = require("passport-local").LocalStrategy();
+const LocalStrategy = require("passport-local").Strategy;
 
 const User = require("../models/user");
 
@@ -35,3 +35,19 @@ passport.deserializeUser(function (id, done) {
     done(err, user);
   });
 });
+
+passport.checkAuthentication = function (req, res, next) {
+  if (!req.isAuthenticated) {
+    return res.redirect("/users/sign-in");
+  }
+
+  next();
+};
+
+passport.setAuthenticatedUser = function (req, res, next) {
+  if (req.isAuthenticated) {
+    res.locals.user = req.user;
+  }
+
+  next();
+};

@@ -28,3 +28,7 @@ module.exports.create = async function (req, res) {
 
   return res.redirect("/users/sign-in");
 };
+
+module.exports.createSession = function (req, res) {
+  return res.redirect("/");
+};

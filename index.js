@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
 const db = require("./config/mongoose");
+const passport = require("passport");
+const passportLocal = require("./config/passport-local-strategy");
 
 const app = express();
 
@@ -32,6 +34,8 @@ app.use(
     },
   })
 );
+
+app.use(passport.setAuthenticatedUser);
 
 app.use("/", require("./routes"));
 
