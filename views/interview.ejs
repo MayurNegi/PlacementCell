@@ -22,6 +22,27 @@
         Name: <%= interview.student.name %> <br />
         Company: <%= interview.company.name %> <br />
         Date: <%= interview.date %><br />
+        <% if(interview.result_status) { %> Result: <%= interview.result_status
+        %>
+        <!--  -->
+        <% } else{ %>
+        <form method="POST" action="/interviews/select-result/">
+          <input
+            type="hidden"
+            name="interview_id"
+            value="<%= interview._id %>"
+          />
+          <span>Select Result: </span>
+          <select name="result_status">
+            <option value="pass">Pass</option>
+            <option value="fail">Fail</option>
+            <option value="on_hold">On hold</option>
+            <option value="didnt_attempt">Didn't Attempt</option>
+            <input type="submit" value="Update" />
+          </select>
+        </form>
+        <!--  -->
+        <% } %>
       </li>
     </p>
     <% } %>

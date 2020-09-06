@@ -28,10 +28,26 @@ module.exports.create = async function (req, res) {
         student: student._id,
         company: company._id,
         date: req.body.date,
+        // result_status: "",
       });
     } else {
       console.log("student/company name is incorrect");
     }
+    return res.redirect("back");
+  } catch (err) {
+    console.log("err", err);
+    return;
+  }
+};
+
+module.exports.selectResult = async function (req, res) {
+  try {
+    let interviewId = await Interview.findOne({ _id: req.body.interview_id });
+
+    await Interview.findByIdAndUpdate(interviewId, {
+      result_status: req.body.result_status,
+    });
+
     return res.redirect("back");
   } catch (err) {
     console.log("err", err);

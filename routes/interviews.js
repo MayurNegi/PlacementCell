@@ -8,4 +8,6 @@ router.get("/", interviewsController.page);
 
 router.post("/create", interviewsController.create);
 
+router.post("/select-result", interviewsController.selectResult);
+
 module.exports = router;
