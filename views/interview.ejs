@@ -12,3 +12,18 @@
     <input type="submit" value="Add" />
   </form>
 </section>
+
+<section>
+  <h1>List Of Interviews:</h1>
+  <ul>
+    <% for(interview of interviews) { %>
+    <p>
+      <li>
+        Name: <%= interview.student.name %> <br />
+        Company: <%= interview.company.name %> <br />
+        Date: <%= interview.date %><br />
+      </li>
+    </p>
+    <% } %>
+  </ul>
+</section>

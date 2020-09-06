@@ -16,7 +16,7 @@ module.exports.page = async function (req, res) {
 
 module.exports.create = async function (req, res) {
   try {
-    let company = Company.create(req.body);
+    let company = await Company.create(req.body);
 
     return res.redirect("back");
   } catch (err) {

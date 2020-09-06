@@ -21,3 +21,6 @@ const interviewSchema = new mongoose.Schema({
     default: "On hold",
   },
 });
+
+const Interview = mongoose.model("Interview", interviewSchema);
+module.exports = Interview;

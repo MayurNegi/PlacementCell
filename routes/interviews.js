@@ -6,6 +6,6 @@ const interviewsController = require("../controllers/interviews_controller");
 
 router.get("/", interviewsController.page);
 
-// router.post("/create", studentsController.create);
+router.post("/create", interviewsController.create);
 
 module.exports = router;
