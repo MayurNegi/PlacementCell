@@ -1,0 +1,68 @@
+<section>
+  <h1>Add Student:</h1>
+  <form method="POST" action="/students/create">
+    <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Name" required />
+    <br />
+    <label for="batch">Batch:</label>
+    <input type="text" name="batch" placeholder="Batch" required /><br />
+    <label for="college">College:</label>
+    <input type="text" name="college" placeholder="College" required /><br />
+    <label for="year">Graduation Year:</label>
+    <input
+      type="text"
+      name="year"
+      placeholder="Graduation Year"
+      required
+    /><br />
+    <label for="status">Status:</label>
+    <select name="status">
+      <option value="placed">Placed</option>
+      <option value="not_placed">Not Placed</option>
+    </select>
+    <br />
+    <label for="score.DSA">DSA score:</label>
+    <input
+      type="text"
+      name="score.DSA"
+      placeholder="DSA score"
+      required
+    /><br />
+    <label for="score.web">web Score:</label>
+    <input
+      type="text"
+      name="score.web"
+      placeholder="web Score"
+      required
+    /><br />
+    <label for="score.react">react Score:</label>
+    <input
+      type="text"
+      name="score.react"
+      placeholder="react Score"
+      required
+    /><br />
+    <input type="submit" value="Add" />
+  </form>
+</section>
+
+<section>
+  <h1>Students:</h1>
+  <ul>
+    <% for(student of students) { %>
+    <p>
+      <li>
+        Name: <%= student.name %> <br />
+        Batch: <%= student.batch %> <br />
+        College: <%= student.college %><br />
+        Year: <%= student.year %><br />
+        Status: <%= student.status %><br />
+        <bold>Score: </bold> <br />
+        DSA: <%= student.score.DSA %><br />
+        Web: <%= student.score.web %><br />
+        React: <%= student.score.react %><br />
+      </li>
+    </p>
+    <% } %>
+  </ul>
+</section>
