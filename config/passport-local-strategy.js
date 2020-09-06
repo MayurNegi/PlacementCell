@@ -17,7 +17,7 @@ passport.use(
         if (!user || user.password != password) {
           return done(null, false);
         }
-        console.log("done", user);
+        // console.log("done", user);
         return done(null, user);
       });
     }
@@ -26,7 +26,7 @@ passport.use(
 
 // used to serialize the user for the session
 passport.serializeUser(function (user, done) {
-  console.log(user);
+  // console.log(user);
 
   done(null, user.id);
 });
@@ -55,7 +55,7 @@ passport.setAuthenticatedUser = function (req, res, next) {
   // console.log("setAuthenticatedUser");
   // console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
-    console.log("inside setAuthenUser", req.user);
+    // console.log("inside setAuthenUser", req.user);
 
     res.locals.user = req.user;
   }

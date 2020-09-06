@@ -1,3 +1,18 @@
 <header>
-  <h1>header</h1>
+  <h1>Placement Cell</h1>
+  <% if(locals.user) { %>
+  <!--  -->
+  <ul style="tex">
+    <li><%=locals.user.name %></li>
+    <li><a href="/users/sign-out"> Sign Out </a></li>
+  </ul>
+
+  <!--  -->
+  <% } else { %>
+  <ul>
+    <li><a href="/users/sign-in"> Sign In </a></li>
+    <li><a href="/users/sign-up"> Sign Up </a></li>
+  </ul>
+
+  <% } %>
 </header>
