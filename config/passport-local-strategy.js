@@ -17,7 +17,7 @@ passport.use(
         if (!user || user.password != password) {
           return done(null, false);
         }
-
+        console.log("done", user);
         return done(null, user);
       });
     }
@@ -26,28 +26,41 @@ passport.use(
 
 // used to serialize the user for the session
 passport.serializeUser(function (user, done) {
+  console.log(user);
+
   done(null, user.id);
 });
 
 // used to deserialize the user
 passport.deserializeUser(function (id, done) {
   User.findById(id, function (err, user) {
-    done(err, user);
+    if (err) {
+      console.log("Error in finding user --> Passport");
+      return done(err);
+    }
+
+    return done(null, user);
   });
 });
 
 passport.checkAuthentication = function (req, res, next) {
-  if (!req.isAuthenticated) {
-    return res.redirect("/users/sign-in");
+  if (req.isAuthenticated()) {
+    return next();
   }
 
-  next();
+  return res.redirect("/users/sign-in");
 };
 
 passport.setAuthenticatedUser = function (req, res, next) {
-  if (req.isAuthenticated) {
+  // console.log("setAuthenticatedUser");
+  // console.log(req.isAuthenticated());
+  if (req.isAuthenticated()) {
+    console.log("inside setAuthenUser", req.user);
+
     res.locals.user = req.user;
   }
 
   next();
 };
+
+module.exports = passport;

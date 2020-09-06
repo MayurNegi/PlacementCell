@@ -1,1 +1,10 @@
-<h5>Welcome</h5>
+<% if(locals.user) { %>
+<!--  -->
+Name: <%=locals.user.name %>
+<br />
+
+Email: <%= locals.user.email %>
+<!--  -->
+<% } else { %>
+<h1>Welcome</h1>
+<% } %>
