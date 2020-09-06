@@ -18,3 +18,19 @@
     <input type="submit" value="Add" />
   </form>
 </section>
+
+<section>
+  <h1>List Of Companies:</h1>
+  <ul>
+    <% for(company of companies) { %>
+    <p>
+      <li>
+        Name: <%= company.name %> <br />
+        Description: <%= company.description %> <br />
+        Package: <%= company.package %><br />
+        Openings: <%= company.openings %><br />
+      </li>
+    </p>
+    <% } %>
+  </ul>
+</section>

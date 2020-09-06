@@ -18,7 +18,7 @@ module.exports.create = async function (req, res) {
   try {
     let student = await Student.create(req.body);
 
-    console.log(student);
+    // console.log(student);
 
     return res.redirect("back");
   } catch (err) {
