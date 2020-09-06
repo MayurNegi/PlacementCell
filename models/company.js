@@ -13,6 +13,10 @@ const companySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    package: {
+      type: String,
+      required: true,
+    },
     students: [
       {
         type: mongoose.Schema.Types.ObjectId,

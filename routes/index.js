@@ -10,5 +10,6 @@ router.get("/", function (req, res) {
 
 router.use("/users", require("./users"));
 router.use("/students", require("./students"));
+router.use("/companies", require("./companies"));
 
 module.exports = router;
