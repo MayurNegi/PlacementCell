@@ -8,6 +8,8 @@ module.exports.page = async function (req, res) {
       .populate("student")
       .populate("company");
 
+    console.log(interviews);
+
     return res.render("interview", {
       title: "Interview",
       interviews: interviews,
@@ -24,12 +26,14 @@ module.exports.create = async function (req, res) {
     let company = await Company.findOne({ name: req.body.company });
 
     if (student && company) {
-      let interview = Interview.create({
+      let interview = await Interview.create({
         student: student._id,
         company: company._id,
         date: req.body.date,
-        // result_status: "",
       });
+
+      company.students.push(student);
+      company.save();
     } else {
       console.log("student/company name is incorrect");
     }

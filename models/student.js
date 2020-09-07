@@ -12,6 +12,12 @@ const studentSchema = new mongoose.Schema(
       web: 0,
       react: 0,
     },
+    interviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Interview",
+      },
+    ],
   },
   {
     timestamps: true,

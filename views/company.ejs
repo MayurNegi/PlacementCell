@@ -29,6 +29,12 @@
         Description: <%= company.description %> <br />
         Package: <%= company.package %><br />
         Openings: <%= company.openings %><br />
+        Students applied:
+        <ul style="list-style: none">
+          <% for(student of company.students) { %>
+          <li><%= student.name %></li>
+          <% } %>
+        </ul>
       </li>
     </p>
     <% } %>

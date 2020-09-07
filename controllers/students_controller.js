@@ -1,8 +1,13 @@
 const Student = require("../models/student");
+const Interview = require("../models/interview");
 
 module.exports.page = async function (req, res) {
   try {
+    // let interview = await Interview.find({}).populate("student");
+
     let students = await Student.find({});
+
+    console.log("students", students);
 
     return res.render("student", {
       title: "student",

@@ -2,7 +2,9 @@ const Company = require("../models/company");
 
 module.exports.page = async function (req, res) {
   try {
-    let companies = await Company.find({});
+    let companies = await Company.find({}).populate("students");
+
+    console.log(companies);
 
     return res.render("company", {
       title: "company",
