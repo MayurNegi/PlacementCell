@@ -32,18 +32,14 @@ module.exports.create = async function (req, res) {
     let student = await Student.findOne({ name: req.body.student });
     let company = await Company.findOne({ name: req.body.company });
 
-    if (student && company) {
-      let interview = await Interview.create({
-        student: student._id,
-        company: company._id,
-        date: req.body.date,
-      });
+    let interview = await Interview.create({
+      student: student._id,
+      company: company._id,
+      date: req.body.date,
+    });
 
-      company.students.push(student);
-      company.save();
-    } else {
-      console.log("student/company name is incorrect");
-    }
+    company.students.push(student);
+    company.save();
     return res.redirect("back");
   } catch (err) {
     console.log("err", err);

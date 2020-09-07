@@ -3,7 +3,7 @@ const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const mongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session);
 
 const db = require("./config/mongoose");
 const passport = require("passport");
@@ -11,17 +11,15 @@ const passportLocal = require("./config/passport-local-strategy");
 
 const app = express();
 
-app.set("view engine", "ejs");
-app.set("views", "./views");
-
-app.use(expressLayouts);
-
 app.use(express.urlencoded());
 app.use(cookieParser());
 
+app.use(expressLayouts);
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 app.use(express.static("./assets"));
 
-app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
@@ -33,10 +31,9 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true,
-      maxAge: 1000 * 100 * 100,
+      maxAge: 1000 * 60 * 100,
     },
-    store: new mongoStore(
+    store: new MongoStore(
       {
         mongooseConnection: db,
         autoRemove: "disabled",

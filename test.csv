@@ -1,5 +1,4 @@
 Name,Batch,College,Year,Status,DSA_Final_Score,web_Final_Score,react_Final_Score,Company,Interview_Date,Interview_Result
-jack,2015,JP,2019,"[""not_placed""]",1,1,1,CN,1600300800000,on_hold
-jack,2015,JP,2019,"[""not_placed""]",1,1,1,CN 2,1599091200000,pass
-jagdish,2016,IPU,2021,"[""placed""]",9,9,10,CN,1599523200000,
-sachin,2016,MBPG,2019,"[""not_placed""]",1,1,1,CN,1600214400000,fail
+amit ,2016,IIT,2020,"[""placed""]",9,10,9,amazon,1599868800000,on_hold
+sachin,2016,IIT M,2020,"[""not_placed""]",9,9,9,facebook,1599609600000,pass
+vishal,2017,MIT,2021,"[""not_placed""]",8,9,9,Apple,1599609600000,pass

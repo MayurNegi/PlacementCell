@@ -1,7 +1,6 @@
 const Student = require("../models/student");
 const Interview = require("../models/interview");
 const objectsToCsv = require("objects-to-csv");
-const ObjectsToCsv = require("objects-to-csv");
 
 module.exports.page = async function (req, res) {
   try {
