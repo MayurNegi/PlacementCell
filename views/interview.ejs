@@ -2,10 +2,19 @@
   <h1>Add Interview:</h1>
   <form method="POST" action="/interviews/create">
     <label for="student">Student:</label>
-    <input type="text" name="student" placeholder="Student" required />
+    <select type="text" name="student" required>
+      <% for(stud of students) { %>
+      <option value="<%= stud.name %>"><%= stud.name %></option>
+      <% } %>
+    </select>
     <br />
     <label for="company">Company:</label>
-    <input type="text" name="company" placeholder="Company" required /><br />
+    <select type="text" name="company" required>
+      <% for(comp of companies) { %>
+      <option value="<%= comp.name %>"><%= comp.name %></option>
+      <% } %>
+    </select>
+    <br />
     <label for="date">Date:</label>
     <input type="date" name="date" placeholder="Date" required /><br />
 
@@ -38,7 +47,7 @@
             <option value="fail">Fail</option>
             <option value="on_hold">On hold</option>
             <option value="didnt_attempt">Didn't Attempt</option>
-            <input type="submit" value="Update" />
+            <input type="submit" value="Add result" />
           </select>
         </form>
         <!--  -->

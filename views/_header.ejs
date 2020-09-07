@@ -1,8 +1,14 @@
 <header>
-  <h1>Placement Cell</h1>
+  <section>
+    <ul>
+      <li><a href="/students">Students</a></li>
+      <li><a href="/companies">Companies</a></li>
+      <li><a href="/interviews">Interviews</a></li>
+    </ul>
+  </section>
   <% if(locals.user) { %>
   <!--  -->
-  <ul style="tex">
+  <ul>
     <li><%=locals.user.name %></li>
     <li><a href="/users/sign-out"> Sign Out </a></li>
   </ul>

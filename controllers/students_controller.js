@@ -1,5 +1,7 @@
 const Student = require("../models/student");
 const Interview = require("../models/interview");
+const objectsToCsv = require("objects-to-csv");
+const ObjectsToCsv = require("objects-to-csv");
 
 module.exports.page = async function (req, res) {
   try {
@@ -7,7 +9,7 @@ module.exports.page = async function (req, res) {
 
     let students = await Student.find({});
 
-    console.log("students", students);
+    // console.log("students", students);
 
     return res.render("student", {
       title: "student",
@@ -23,7 +25,7 @@ module.exports.create = async function (req, res) {
   try {
     let student = await Student.create(req.body);
 
-    // console.log(student);
+    console.log(req.body);
 
     return res.redirect("back");
   } catch (err) {

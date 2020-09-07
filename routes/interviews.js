@@ -9,5 +9,6 @@ router.get("/", interviewsController.page);
 router.post("/create", interviewsController.create);
 
 router.post("/select-result", interviewsController.selectResult);
+router.post("/download-csv", interviewsController.downloadCSV);
 
 module.exports = router;
