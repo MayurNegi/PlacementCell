@@ -2,22 +2,22 @@ const mongoose = require("mongoose");
 
 const studentSchema = new mongoose.Schema(
   {
-    name: "",
-    batch: "",
-    college: "",
-    year: "",
-    status: ["placed", "not_placed"],
+    name: String,
+    batch: String,
+    college: String,
+    year: String,
+
+    status: {
+      type: String,
+      enum: ["placed", "not_placed"],
+      default: "placed",
+    },
+
     score: {
       DSA: 0,
       web: 0,
       react: 0,
     },
-    // interviews: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Interview",
-    //   },
-    // ],
   },
   {
     timestamps: true,
